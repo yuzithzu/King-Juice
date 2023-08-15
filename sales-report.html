@@ -173,8 +173,19 @@
 
   // Function to erase data
   function eraseData() {
-    salesData.length = 0;
-    document.getElementById('reportTable').innerHTML = '';
+    const eraseSelect = document.getElementById('eraseSelect');
+    const selectedValue = eraseSelect.value;
+
+    if (selectedValue === 'daily') {
+      // Erase daily report
+      document.getElementById('reportTable').innerHTML = '';
+    } else if (selectedValue === 'monthly') {
+      // Erase monthly sales
+      // ... (your code to erase monthly sales data)
+    } else if (selectedValue === 'yearly') {
+      // Erase yearly sales
+      // ... (your code to erase yearly sales data)
+    }
   }
 </script>
 </head>
@@ -201,6 +212,12 @@
     <div id="reportTable"></div>
   </div>
   <div class="content">
+    <label for="eraseSelect">Select data to erase:</label>
+    <select id="eraseSelect">
+      <option value="daily">Daily Report</option>
+      <option value="monthly">Monthly Sales</option>
+      <option value="yearly">Yearly Sales</option>
+    </select>
     <button class="erase-button" id="eraseDataButton" onclick="eraseData()">Erase Data</button>
   </div>
 </body>
